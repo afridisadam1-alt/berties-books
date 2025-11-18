@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Register for <%=shopData.shopName%></title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <h1>Register for <%=shopData.shopName%></h1>
+    <form method="POST" action="/addbook">
+        <p>Book name: <input id="first" type="text" name="first" /></p>
+        <p>Book Price: <input id="last" type="text" name="price" /></p>
+        
+        <input type="submit" value="Add Book" />
+      </form>
+  </body>
+</html>

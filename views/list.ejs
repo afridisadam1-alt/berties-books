@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+     <link rel="stylesheet"  type="text/css" href="/main.css" />
+</head>
+<body>
+    <h1>Books Under £20</h1>
+
+    <ul>
+        <% if (typeof availableBooks !== 'undefined' && availableBooks.length > 0) { %>
+            <% availableBooks.forEach(function(availableBooks) { %>
+                <li>
+                    <strong>ID:</strong> <%= availableBooks.id %><br>
+                    <strong>Name:</strong> <%= availableBooks.name %><br>
+                    <strong>Price:</strong> £<%= availableBooks.price %>
+                </li>
+            <% }); %>
+        <% } else { %>
+            <li>No books found under £20.</li>
+        <% } %>
+    </ul>
+</body>
+</html>
