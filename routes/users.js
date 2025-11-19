@@ -19,7 +19,7 @@ router.post('/register', (req, res, next) => {
         if (err) return next(err);
 
         // Insert user into database
-        const sql = 'INSERT INTO users (username, first_name, last_name, email, password) VALUES (?,?,?,?,?)';
+        const sql = 'INSERT INTO users (uname, first, last, email, password) VALUES (?,?,?,?,?)';
         const values = [uname, first, last, email, hashedPassword];
 
         db.query(sql, values, (err, result) => {
