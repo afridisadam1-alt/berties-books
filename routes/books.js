@@ -6,9 +6,19 @@ router.get('/search',function(req, res, next){
     res.render("search.ejs")
 });
 
-router.get('/search-result', function (req, res, next) {
-    //searching in the database
-    res.send("You searched for: " + req.query.keyword)
+router.get('/search_result', function (req, res, next) {
+    const searchText = req.query.search_text;   // from search.ejs
+
+    const sql = "SELECT * FROM users WHERE uname LIKE ?";
+
+    db.query(sql, [ searchText + '%' ], function (err, results) {
+        if (err) throw err;
+
+        console.log("Search Text:", searchText);
+        console.log("Query Results:", results);   // <-- prints results in console
+
+        res.render("search.ejs", { users: results });
+    });
 });
 // List route
 router.get('/list', function (req, res, next) {
